@@ -1,16 +1,18 @@
 const express = require("express");
-const tourController = require("./../controllers/mysteryController");
+const mysteryController = require("./../controllers/mysteryController");
 const router = express.Router();
+
+router.param("id", mysteryController.checkId);
 
 router
   .route("/")
-  .get(tourController.getAllMysteries)
-  .post(tourController.createMystery);
+  .get(mysteryController.getAllMysteries)
+  .post(mysteryController.checkBody, mysteryController.createMystery);
 
 router
   .route("/:id")
-  .get(tourController.getMystery)
-  .patch(tourController.updateMystery)
-  .delete(tourController.deleteMystery);
+  .get(mysteryController.getMystery)
+  .patch(mysteryController.updateMystery)
+  .delete(mysteryController.deleteMystery);
 
 module.exports = router;
