@@ -1,0 +1,13 @@
+$kind: http-request
+name: Create New Mystery
+url: 127.0.0.1:3000/api/v1/mysteries/
+method: POST
+body:
+  type: json
+  content: |-
+    {
+        "name": "New Posted Mystery",
+        "rating": 5,
+        "price": 169
+    }
+order: 711423921019185

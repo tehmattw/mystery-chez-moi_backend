@@ -1,0 +1,11 @@
+$kind: http-request
+name: Update Mystery
+url: 127.0.0.1:3000/api/v1/mysteries/69cfaad113f299db1d16b75d
+method: PATCH
+body:
+  type: json
+  content: |-
+    {
+        "name": "New Patched Mystery Name"
+    }
+order: 1989686314809080

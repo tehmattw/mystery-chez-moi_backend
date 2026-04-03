@@ -1,13 +1,14 @@
 const express = require("express");
-const mysteryController = require("./../controllers/mysteryController");
+const mysteryController = require("../controllers/mysteryController");
+
 const router = express.Router();
 
-router.param("id", mysteryController.checkId);
+// router.param("id", mysteryController.checkId);
 
 router
   .route("/")
   .get(mysteryController.getAllMysteries)
-  .post(mysteryController.checkBody, mysteryController.createMystery);
+  .post(mysteryController.createMystery);
 
 router
   .route("/:id")
