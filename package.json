@@ -1,6 +1,9 @@
 {
   "name": "mystery-chez-moi_backend",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=8.3.0"
+  },
   "description": "ITMD504 Final Project Backend Code",
   "license": "ISC",
   "author": "",

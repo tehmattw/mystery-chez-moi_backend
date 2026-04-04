@@ -5,7 +5,7 @@ const router = express.Router();
 
 router
   .route("/top-mysteries")
-  .get(mysteryController.alias, mysteryController.getAllMysteries);
+  .get(mysteryController.aliasTopMysteries, mysteryController.getAllMysteries);
 
 router
   .route("/")
