@@ -3,7 +3,9 @@ const mysteryController = require("../controllers/mysteryController");
 
 const router = express.Router();
 
-// router.param("id", mysteryController.checkId);
+router
+  .route("/top-mysteries")
+  .get(mysteryController.alias, mysteryController.getAllMysteries);
 
 router
   .route("/")

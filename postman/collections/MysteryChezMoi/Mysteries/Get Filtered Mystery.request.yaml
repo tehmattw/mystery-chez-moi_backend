@@ -1,0 +1,5 @@
+$kind: http-request
+name: Get Filtered Mystery
+url: ""
+method: GET
+order: 3962748156856343

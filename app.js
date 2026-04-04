@@ -5,6 +5,7 @@ const mysteryRouter = require("./routes/mysteryRoutes");
 const userRouter = require("./routes/userRoutes");
 
 const app = express();
+app.set("query parser", "extended");
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
