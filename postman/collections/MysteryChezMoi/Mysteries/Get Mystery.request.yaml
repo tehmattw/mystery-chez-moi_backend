@@ -1,5 +1,5 @@
 $kind: http-request
 name: Get Mystery
-url: 127.0.0.1:3000/api/v1/mysteries/69cfaad113f299db1d16b75d
+url: 127.0.0.1:3000/api/v1/mysteries/69cfe070998126ba2d274637
 method: GET
 order: 862487163590354

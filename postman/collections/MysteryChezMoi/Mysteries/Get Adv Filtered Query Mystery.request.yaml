@@ -1,5 +1,8 @@
 $kind: http-request
 name: Get Adv Filtered Query Mystery
-url: ""
+url: 127.0.0.1:3000/api/v1/mysteries?duration[gte]=5&difficulty=easy
 method: GET
+queryParams:
+  duration[gte]: "5"
+  difficulty: easy
 order: 4451570678732083

@@ -1,5 +1,7 @@
 $kind: http-request
 name: Get Filtered Mystery
-url: ""
+url: 127.0.0.1:3000/api/v1/mysteries?sort=-price,-ratingsAverage
 method: GET
+queryParams:
+  sort: -price,-ratingsAverage
 order: 3962748156856343

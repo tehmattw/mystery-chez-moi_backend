@@ -1,5 +1,7 @@
 const Mystery = require("../models/mysteryModel");
 const APIFeatures = require("../utils/apiFeatures");
+const catchAsync = require("../utils/catchAsync");
+const AppError = require("../utils/appError");
 
 exports.aliasTopMysteries = (req, res, next) => {
   req.url =
@@ -7,95 +9,69 @@ exports.aliasTopMysteries = (req, res, next) => {
   next();
 };
 
-exports.getAllMysteries = async (req, res) => {
-  try {
-    const features = new APIFeatures(Mystery.find(), req.query)
-      .filter()
-      .sort()
-      .limitFields()
-      .paginate();
-    const mysteries = await features.query;
+exports.getAllMysteries = catchAsync(async (req, res, next) => {
+  const features = new APIFeatures(Mystery.find(), req.query)
+    .filter()
+    .sort()
+    .limitFields()
+    .paginate();
+  const mysteries = await features.query;
 
-    res.status(200).json({
-      status: "success",
-      results: mysteries.length,
-      data: {
-        mysteries: mysteries,
-      },
-    });
-  } catch (err) {
-    res.status(404).json({
-      status: "fail",
-      message: err,
-    });
-  }
-};
+  res.status(200).json({
+    status: "success",
+    results: mysteries.length,
+    data: {
+      mysteries: mysteries,
+    },
+  });
+});
 
-exports.getMystery = async (req, res) => {
-  try {
-    const mystery = await Mystery.findById(req.params.id);
-    res.status(200).json({
-      status: "success",
-      data: {
-        mystery,
-      },
-    });
-  } catch (err) {
-    res.status(404).json({
-      status: "fail",
-      message: err,
-    });
+exports.getMystery = catchAsync(async (req, res, next) => {
+  const mystery = await Mystery.findById(req.params.id);
+  if (!mystery) {
+    return next(new AppError(`No mystery found with id ${req.params.id}`, 404));
   }
-};
+  res.status(200).json({
+    status: "success",
+    data: {
+      mystery,
+    },
+  });
+});
 
-exports.createMystery = async (req, res) => {
-  try {
-    const newMystery = await Mystery.create(req.body);
-    res.status(201).json({
-      status: "success",
-      mystery: newMystery,
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: "fail",
-      message: err,
-    });
-  }
-};
+exports.createMystery = catchAsync(async (req, res, next) => {
+  const newMystery = await Mystery.create(req.body);
+  res.status(201).json({
+    status: "success",
+    mystery: newMystery,
+  });
+});
 
-exports.updateMystery = async (req, res) => {
-  try {
-    const mystery = await Mystery.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
-    res.status(200).json({
-      status: "success",
-      data: {
-        mystery,
-      },
-    });
-  } catch (err) {
-    res.status(404).json({
-      status: "fail",
-      message: err,
-    });
+exports.updateMystery = catchAsync(async (req, res, next) => {
+  const mystery = await Mystery.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
+  if (!mystery) {
+    return next(new AppError(`No mystery found with id ${req.params.id}`, 404));
   }
-};
+  res.status(200).json({
+    status: "success",
+    data: {
+      mystery,
+    },
+  });
+});
 
-exports.deleteMystery = async (req, res) => {
-  try {
-    const mystery = await Mystery.findByIdAndDelete(req.params.id);
-    res.status(204).json({
-      status: "success",
-      data: {
-        mystery,
-      },
-    });
-  } catch (err) {
-    res.status(404).json({
-      status: "fail",
-      message: err,
-    });
+exports.deleteMystery = catchAsync(async (req, res, next) => {
+  const mystery = await Mystery.findByIdAndDelete(req.params.id);
+  if (!mystery) {
+    return next(new AppError(`No mystery found with id ${req.params.id}`, 404));
   }
-};
+  res.status(204).json({
+    status: "success",
+    data: {
+      mystery,
+    },
+  });
+});
