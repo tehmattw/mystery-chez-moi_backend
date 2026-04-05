@@ -1,7 +1,7 @@
-###ITMD504 Final Project Backend Code
+ITMD504 Final Project Backend Code
 
-##Node.js
+Node.js:
 
-##MVC
+MVC:
 
-##Features:
+Features:

@@ -1,0 +1,12 @@
+$kind: http-request
+name: Get Login Incorrect
+url: 127.0.0.1:3000/api/v1/users/login
+method: POST
+body:
+  type: json
+  content: |-
+    {
+        "email": "firstfirst.lastlastlast@example.com",
+        "password": "123456789"
+    }
+order: 4268500884231237

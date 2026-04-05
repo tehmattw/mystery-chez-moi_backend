@@ -1,0 +1,12 @@
+$kind: http-request
+name: Login Missing Info
+url: 127.0.0.1:3000/api/v1/users/login
+method: POST
+body:
+  type: json
+  content: |-
+    {
+        "email": "123.345@example.com",
+        "password": "1234567890"
+    }
+order: 2700875876825039
