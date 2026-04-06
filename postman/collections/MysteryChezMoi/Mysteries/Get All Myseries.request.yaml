@@ -1,5 +1,35 @@
 $kind: http-request
 name: Get All Myseries
-url: 127.0.0.1:3000/api/v1/mysteries
+url: "{{URL}}mysteries"
 method: GET
+headers:
+  - key: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDJjMWY5YjkyMjQ2NmFjNjZmMTFjZCIsImlhdCI6MTc3NTQ3NTU1MiwiZXhwIjoxNzc1NzM0NzUyfQ.W-WDVk22snpVeQMEd5f7dGgX6D-Lli9pSF1SxqlMk-k
+    disabled: true
+    description: correct token
+  - key: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDJjMWY5YjkyMjQ2NmFjNjZmMTFjZCIsImlhdCI6MTc3NTQ3NzM3MCwiZXhwIjoxNzc1NzM2NTcwfQ.qMfIHoPly_8spfn1ChMZ7W012l2AO10tLoD1TgIM8ey
+    disabled: true
+    description: incorrect token
+  - key: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDJjMWY5YjkyMjQ2NmFjNjZmMTFjZCIsImlhdCI6MTc3NTQ3NzQ2OCwiZXhwIjoxNzc1NDc3NDY4fQ.DMqTChVuwRXfmWBiLkWnZE49qQnC57oIfgK6MxX2aNg
+    disabled: true
+    description: expired token
+  - key: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDNhNjVlNWVhZmViZjU5MDkyMjBjYiIsImlhdCI6MTc3NTQ3ODM2NiwiZXhwIjoxNzc1NzM3NTY2fQ.xCF6jz-BfTN35rlBTV7wg46TXSFdysQnOYqxfgbJjSk
+    disabled: true
+    description: good token deleted user
+  - key: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDNhZDFhMTU3N2YzZTZkMjk1NWY3MCIsImlhdCI6MTc3NTQ4MDA5MCwiZXhwIjoxNzc1NzM5MjkwfQ.mIpSZX30r_XrSSXPK565nKD9rHr1PvuyGCpr4Cm9vis
+    disabled: true
+    description: good token password changed
+auth:
+  type: bearer
+  credentials:
+    token: "{{jwt}}"
 order: 1775223447986

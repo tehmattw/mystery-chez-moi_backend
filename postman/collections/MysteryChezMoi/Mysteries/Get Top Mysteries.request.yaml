@@ -1,5 +1,5 @@
 $kind: http-request
 name: Get Top Mysteries
-url: 127.0.0.1:3000/api/v1/mysteries/top-mysteries
+url: "{{URL}}mysteries/top-mysteries"
 method: GET
 order: 4487908757344622

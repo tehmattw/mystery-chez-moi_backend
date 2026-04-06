@@ -1,5 +1,6 @@
 const express = require("express");
 const mysteryController = require("../controllers/mysteryController");
+const authController = require("../controllers/authController");
 
 const router = express.Router();
 
@@ -9,7 +10,7 @@ router
 
 router
   .route("/")
-  .get(mysteryController.getAllMysteries)
+  .get(authController.protect, mysteryController.getAllMysteries)
   .post(mysteryController.createMystery);
 
 router

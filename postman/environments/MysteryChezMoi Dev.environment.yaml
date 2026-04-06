@@ -1,0 +1,5 @@
+name: MysteryChezMoi Dev
+values:
+  - key: URL
+    value: ''
+    enabled: true

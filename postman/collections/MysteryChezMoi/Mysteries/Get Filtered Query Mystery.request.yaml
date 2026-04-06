@@ -1,6 +1,6 @@
 $kind: http-request
 name: Get Filtered Query Mystery
-url: 127.0.0.1:3000/api/v1/mysteries?difficulty=easy&page=2&sort=price
+url: "{{URL}}mysteries?difficulty=easy&page=2&sort=price"
 method: GET
 queryParams:
   difficulty: easy

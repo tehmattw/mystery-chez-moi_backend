@@ -1,0 +1,5 @@
+name: MysteryChezMoi Prod
+values:
+  - key: URL
+    value: ''
+    enabled: true

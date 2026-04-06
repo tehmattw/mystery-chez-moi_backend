@@ -1,5 +1,5 @@
 $kind: http-request
 name: Delete Mystery
-url: 127.0.0.1:3000/api/v1/mysteries/69cfc439cc38dc6225d24ed1
+url: "{{URL}}mysteries/69cfc439cc38dc6225d24ed1"
 method: DELETE
 order: 2143093313200587
