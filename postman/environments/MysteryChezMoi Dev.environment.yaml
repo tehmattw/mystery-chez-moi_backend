@@ -3,3 +3,9 @@ values:
   - key: URL
     value: ''
     enabled: true
+  - key: jwt-user
+    value: ''
+    enabled: true
+  - key: jwt-admin
+    value: ''
+    enabled: true

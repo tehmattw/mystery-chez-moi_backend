@@ -1,5 +1,9 @@
 $kind: http-request
 name: Delete Mystery
-url: "{{URL}}mysteries/69cfc439cc38dc6225d24ed1"
+url: "{{URL}}mysteries/69d27c8e840a77b09bf7fe7f"
 method: DELETE
+auth:
+  type: bearer
+  credentials:
+    token: "{{jwt-admin}}"
 order: 2143093313200587

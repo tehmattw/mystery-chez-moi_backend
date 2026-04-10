@@ -6,11 +6,11 @@ body:
   type: json
   content: |-
     {
-        "name": "First Last",
-        "email": "firstfirst.last@example.com",
+        "name": "Admin",
+        "email": "admin@example.com",
         "password": "1234567890",
         "passwordConfirm": "1234567890",
-        "passwordChangedAt": "2026-04-05"
+        "role": "admin"
     }
 scripts:
   - type: afterResponse
