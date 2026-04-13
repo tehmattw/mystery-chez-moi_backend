@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 
 const globalErrorHandler = require("./controllers/errorController");
 const AppError = require("./utils/appError");
@@ -8,10 +9,19 @@ const userRouter = require("./routes/userRoutes");
 
 const app = express();
 app.set("query parser", "extended");
+app.set("etag", false);
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
+
+app.use(cors());
+app.options("/{*any}", cors());
+//no-store for tokens + testing dev
+app.use("/api/v1", (req, res, next) => {
+  res.set("Cache-Control", "no-store");
+  next();
+});
 
 app.use(express.json());
 
