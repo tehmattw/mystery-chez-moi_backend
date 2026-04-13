@@ -8,7 +8,7 @@
   "license": "ISC",
   "author": "",
   "type": "commonjs",
-  "main": "index.js",
+  "main": "api/index.js",
   "scripts": {
     "start:dev": "nodemon server.js",
     "start:prod": "NODE_ENV=production node server.js"

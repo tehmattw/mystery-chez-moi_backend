@@ -1,0 +1,5 @@
+$kind: http-request
+name: Get All Mysteries PROD
+url: ""
+method: GET
+order: 4501203611384485
